@@ -41,3 +41,14 @@ def generate_prime_miller_rabin(bits):
         if p % 2 != 0 and all(pow(a, p - 1, p) == 1 for a in random.sample(range(2, min(p, 2048)), min(p - 2, 5))):
             return p
 
+# Generate Generator for Finite Field
+def find_generator(p):
+    for g in range(2, p):
+        if pow(g, (p - 1) // 2, p) != 1 and pow(g, (p - 1) // 3, p) != 1:
+            return g  
+
+
+
+
+
+
