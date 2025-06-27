@@ -33,3 +33,11 @@ def generate_prime_fermat(bits):
             if p.bit_length() != bits:
                 continue
             return p
+
+# Generate Large Prime Number using Miller-Rabin Primality Test
+def generate_prime_miller_rabin(bits):
+    while True:
+        p = random.getrandbits(bits)
+        if p % 2 != 0 and all(pow(a, p - 1, p) == 1 for a in random.sample(range(2, min(p, 2048)), min(p - 2, 5))):
+            return p
+
