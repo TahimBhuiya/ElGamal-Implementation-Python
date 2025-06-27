@@ -48,6 +48,15 @@ def find_generator(p):
             return g  
 
 
+# Asymmetric Key Generation
+def generate_keys(bits):
+    q = generate_prime_fermat(bits)
+    g = find_generator(q)
+    min_private_key = 2 ** (bits // 2)
+    max_private_key = q - 1
+    private_key = random.randint(min_private_key, max_private_key)
+    public_key = power(g, private_key, q)
+    return q, g, private_key, public_key
 
 
 
