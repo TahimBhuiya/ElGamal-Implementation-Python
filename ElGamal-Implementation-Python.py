@@ -59,5 +59,16 @@ def generate_keys(bits):
     return q, g, private_key, public_key
 
 
+# Asymmetric Encryption
+def encrypt(msg, q, g, public_key):
+    k = random.randint(2, q - 1)
+    s = power(public_key, k, q)
+    ciphertext = [(power(g, k, q), (ord(char) * s) % q) for char in msg]
+    return ciphertext
+
+
+
+
+
 
 
