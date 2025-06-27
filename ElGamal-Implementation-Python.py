@@ -11,3 +11,16 @@ def gcd(a, b):
         return b  
     else:
         return gcd(b, a % b)  
+
+# Modular Exponentiation Function (Square-and-Multiply Algorithm)
+def power(a, b, c):
+    result = 1  
+    base = a % c  
+
+    while b > 0:
+        if b % 2 == 1:
+            result = (result * base) % c  
+        base = (base * base) % c  
+        b //= 2  
+
+    return result  
