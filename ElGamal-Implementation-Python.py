@@ -66,6 +66,13 @@ def encrypt(msg, q, g, public_key):
     ciphertext = [(power(g, k, q), (ord(char) * s) % q) for char in msg]
     return ciphertext
 
+# Asymmetric Decryption
+def decrypt(ciphertext, q, private_key):
+    h = power(ciphertext[0][0], private_key, q)
+    plaintext = ''.join([chr((char * pow(h, -1, q)) % q) for _, char in ciphertext])
+    return plaintext
+
+
 
 
 
