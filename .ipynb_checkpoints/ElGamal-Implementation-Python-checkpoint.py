@@ -24,3 +24,12 @@ def power(a, b, c):
         b //= 2  
 
     return result  
+
+# Generate Large Prime Number using Fermat Primality Test
+def generate_prime_fermat(bits):
+    while True:
+        p = random.getrandbits(bits)
+        if p % 2 != 0 and pow(2, p - 1, p) == 1:
+            if p.bit_length() != bits:
+                continue
+            return p
