@@ -16,16 +16,17 @@ def gcd(a, b):
 
 # Modular Exponentiation Function (Square-and-Multiply Algorithm)
 def power(a, b, c):
-    result = 1  
-    base = a % c  
+    result = 1  # Initialize result
+    base = a % c  # Take modulo to simplify base
 
     while b > 0:
         if b % 2 == 1:
-            result = (result * base) % c  
-        base = (base * base) % c  
-        b //= 2  
+            result = (result * base) % c  # Multiply result by base if b is odd
+        base = (base * base) % c  # Square the base
+        b //= 2  # Divide exponent by 2
 
-    return result  
+    return result  # Return the final result
+
 
 # Generate Large Prime Number using Fermat Primality Test
 def generate_prime_fermat(bits):
