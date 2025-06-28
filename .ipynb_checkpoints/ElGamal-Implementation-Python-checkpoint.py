@@ -57,13 +57,14 @@ def find_generator(p):
 
 # Asymmetric Key Generation
 def generate_keys(bits):
-    q = generate_prime_fermat(bits)
-    g = find_generator(q)
-    min_private_key = 2 ** (bits // 2)
-    max_private_key = q - 1
-    private_key = random.randint(min_private_key, max_private_key)
-    public_key = power(g, private_key, q)
-    return q, g, private_key, public_key
+    q = generate_prime_fermat(bits)  # Generate a large prime number
+    g = find_generator(q)  # Find a generator for the finite field
+    min_private_key = 2 ** (bits // 2)  # Minimum value for the private key
+    max_private_key = q - 1  # Maximum value for the private key
+    private_key = random.randint(min_private_key, max_private_key)  # Generate the private key
+    public_key = power(g, private_key, q)  # Compute the corresponding public key
+    return q, g, private_key, public_key  # Return all key components
+
 
 
 # Asymmetric Encryption
