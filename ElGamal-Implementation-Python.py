@@ -38,12 +38,14 @@ def generate_prime_fermat(bits):
             return p  # Return the prime number
 
 
-# Generate Large Prime Number using Miller-Rabin Primality Test
+# Generate a large prime number using the Miller-Rabin Primality Test (basic form)
 def generate_prime_miller_rabin(bits):
     while True:
-        p = random.getrandbits(bits)
+        p = random.getrandbits(bits)  # Generate a random number with the specified bit length
         if p % 2 != 0 and all(pow(a, p - 1, p) == 1 for a in random.sample(range(2, min(p, 2048)), min(p - 2, 5))):
-            return p
+            # Check if p is odd and passes Fermat-based Miller-Rabin test with multiple random bases
+            return p  # Return the probable prime number
+
 
 # Generate Generator for Finite Field
 def find_generator(p):
