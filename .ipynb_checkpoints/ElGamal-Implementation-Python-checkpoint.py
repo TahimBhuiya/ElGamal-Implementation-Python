@@ -4,14 +4,15 @@ import random  # For generating random numbers
 from sympy import primerange  # For generating a range of prime numbers
 
 
-# Greatest Common Divisor (gcd) Function
+# Greatest Common Divisor (GCD) using Euclidean algorithm
 def gcd(a, b):
     if a < b:
-        return gcd(b, a)  
+        return gcd(b, a)  # Ensure the larger number is first
     elif a % b == 0:
-        return b  
+        return b  # Base case: b is the GCD
     else:
-        return gcd(b, a % b)  
+        return gcd(b, a % b)  # Recursive case
+
 
 # Modular Exponentiation Function (Square-and-Multiply Algorithm)
 def power(a, b, c):
