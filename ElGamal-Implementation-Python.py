@@ -28,14 +28,15 @@ def power(a, b, c):
     return result  # Return the final result
 
 
-# Generate Large Prime Number using Fermat Primality Test
+# Generate a large prime number using the Fermat Primality Test
 def generate_prime_fermat(bits):
     while True:
-        p = random.getrandbits(bits)
-        if p % 2 != 0 and pow(2, p - 1, p) == 1:
-            if p.bit_length() != bits:
+        p = random.getrandbits(bits)  # Generate a random number with the specified bit length
+        if p % 2 != 0 and pow(2, p - 1, p) == 1:  # Check if p is odd and passes Fermat’s test
+            if p.bit_length() != bits:  # Ensure p has the exact bit length
                 continue
-            return p
+            return p  # Return the prime number
+
 
 # Generate Large Prime Number using Miller-Rabin Primality Test
 def generate_prime_miller_rabin(bits):
