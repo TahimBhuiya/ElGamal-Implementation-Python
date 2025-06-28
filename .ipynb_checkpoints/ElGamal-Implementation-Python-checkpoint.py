@@ -1,7 +1,8 @@
 # Tahim Bhuiya 
 # Elgamal Implementation
-import random  
-from sympy import primerange  
+import random  # For generating random numbers
+from sympy import primerange  # For generating a range of prime numbers
+
 
 # Greatest Common Divisor (gcd) Function
 def gcd(a, b):
