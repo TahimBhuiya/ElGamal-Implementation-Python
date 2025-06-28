@@ -69,10 +69,11 @@ def generate_keys(bits):
 
 # Asymmetric Encryption
 def encrypt(msg, q, g, public_key):
-    k = random.randint(2, q - 1)
-    s = power(public_key, k, q)
-    ciphertext = [(power(g, k, q), (ord(char) * s) % q) for char in msg]
-    return ciphertext
+    k = random.randint(2, q - 1)  # Generate a random session key (ephemeral key)
+    s = power(public_key, k, q)  # Compute the shared secret using the recipient's public key
+    ciphertext = [(power(g, k, q), (ord(char) * s) % q) for char in msg]  # Encrypt each character of the message
+    return ciphertext  # Return the list of encrypted character pairs
+
 
 # Asymmetric Decryption
 def decrypt(ciphertext, q, private_key):
