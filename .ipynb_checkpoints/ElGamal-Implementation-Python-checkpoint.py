@@ -50,8 +50,9 @@ def generate_prime_miller_rabin(bits):
 # Generate Generator for Finite Field
 def find_generator(p):
     for g in range(2, p):
+        # Check that g is not a quadratic or cubic residue modulo p
         if pow(g, (p - 1) // 2, p) != 1 and pow(g, (p - 1) // 3, p) != 1:
-            return g  
+            return g  # Return g as a generator
 
 
 # Asymmetric Key Generation
