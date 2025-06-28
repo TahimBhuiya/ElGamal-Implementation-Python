@@ -73,7 +73,34 @@ def decrypt(ciphertext, q, private_key):
     return plaintext
 
 
+# Main Function
+def main():
+    while True:
+        try:
+            key_size = int(input("Enter the key size in bits (preferably 16,32,64,128,256): ")) 
+            if key_size <= 0:
+                print("Please enter a positive integer for the key size.")
+                continue
+            break
+        except ValueError:
+            print("Please enter a valid integer for the key size.")
 
+    # Generate Keys
+    q, g, private_key, public_key = generate_keys(key_size)  
+    print("\nPrime Number (q):", q) 
+    print("\nPublic Key:", public_key) 
+    print("\nPrivate Key:", private_key)  
+   
+    plaintext = input("\nEnter the plaintext: ") 
+   
+    ciphertext = encrypt(plaintext, q, g, public_key) 
+    print("\nCiphertext:", ciphertext)  
+   
+    decrypted_plaintext = decrypt(ciphertext, q, private_key)  
+    print("\nDecrypted Plaintext:", decrypted_plaintext)  
+
+if __name__ == '__main__':
+    main()  
 
 
 
