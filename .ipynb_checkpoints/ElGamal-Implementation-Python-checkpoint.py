@@ -106,10 +106,10 @@ def main():
     print("\nPublic Key:", public_key)  # Display the public key
     print("\nPrivate Key:", private_key)  # Display the private key (should be kept secret)
    
-    plaintext = input("\nEnter the plaintext: ") 
-   
-    ciphertext = encrypt(plaintext, q, g, public_key) 
-    print("\nCiphertext:", ciphertext)  
+    plaintext = input("\nEnter the plaintext: ")  # Get the message to encrypt from the user
+
+    ciphertext = encrypt(plaintext, q, g, public_key)  # Encrypt the plaintext using the public key
+    print("\nCiphertext:", ciphertext)  # Display the encrypted message
    
     decrypted_plaintext = decrypt(ciphertext, q, private_key)  
     print("\nDecrypted Plaintext:", decrypted_plaintext)  
