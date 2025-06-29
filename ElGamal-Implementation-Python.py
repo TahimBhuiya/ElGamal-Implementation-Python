@@ -111,11 +111,11 @@ def main():
     ciphertext = encrypt(plaintext, q, g, public_key)  # Encrypt the plaintext using the public key
     print("\nCiphertext:", ciphertext)  # Display the encrypted message
    
-    decrypted_plaintext = decrypt(ciphertext, q, private_key)  
-    print("\nDecrypted Plaintext:", decrypted_plaintext)  
+    decrypted_plaintext = decrypt(ciphertext, q, private_key)  # Decrypt the ciphertext using the private key
+    print("\nDecrypted Plaintext:", decrypted_plaintext)  # Display the decrypted message
 
 if __name__ == '__main__':
-    main()  
+    main()  # Run the main function if this script is executed
 
 
 
