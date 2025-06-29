@@ -3,7 +3,6 @@
 import random  # For generating random numbers
 from sympy import primerange  # For generating a range of prime numbers
 
-
 # Greatest Common Divisor (GCD) using Euclidean algorithm
 def gcd(a, b):
     if a < b:
@@ -12,7 +11,6 @@ def gcd(a, b):
         return b  # Base case: b is the GCD
     else:
         return gcd(b, a % b)  # Recursive case
-
 
 # Modular Exponentiation Function (Square-and-Multiply Algorithm)
 def power(a, b, c):
@@ -27,7 +25,6 @@ def power(a, b, c):
 
     return result  # Return the final result
 
-
 # Generate a large prime number using the Fermat Primality Test
 def generate_prime_fermat(bits):
     while True:
@@ -37,7 +34,6 @@ def generate_prime_fermat(bits):
                 continue
             return p  # Return the prime number
 
-
 # Generate a large prime number using the Miller-Rabin Primality Test (basic form)
 def generate_prime_miller_rabin(bits):
     while True:
@@ -46,15 +42,13 @@ def generate_prime_miller_rabin(bits):
             # Check if p is odd and passes Fermat-based Miller-Rabin test with multiple random bases
             return p  # Return the probable prime number
 
-
 # Generate Generator for Finite Field
 def find_generator(p):
     for g in range(2, p):
         # Check that g is not a quadratic or cubic residue modulo p
         if pow(g, (p - 1) // 2, p) != 1 and pow(g, (p - 1) // 3, p) != 1:
             return g  # Return g as a generator
-
-
+            
 # Asymmetric Key Generation
 def generate_keys(bits):
     q = generate_prime_fermat(bits)  # Generate a large prime number
@@ -65,8 +59,6 @@ def generate_keys(bits):
     public_key = power(g, private_key, q)  # Compute the corresponding public key
     return q, g, private_key, public_key  # Return all key components
 
-
-
 # Asymmetric Encryption
 def encrypt(msg, q, g, public_key):
     k = random.randint(2, q - 1)  # Generate a random session key (ephemeral key)
@@ -74,14 +66,11 @@ def encrypt(msg, q, g, public_key):
     ciphertext = [(power(g, k, q), (ord(char) * s) % q) for char in msg]  # Encrypt each character of the message
     return ciphertext  # Return the list of encrypted character pairs
 
-
 # Asymmetric Decryption
 def decrypt(ciphertext, q, private_key):
     h = power(ciphertext[0][0], private_key, q)  # Recompute the shared secret using the private key
     plaintext = ''.join([chr((char * pow(h, -1, q)) % q) for _, char in ciphertext])  # Decrypt each character
     return plaintext  # Return the original plaintext message
-
-
 
 # Main Function
 def main():
@@ -98,7 +87,6 @@ def main():
         except ValueError:
             # Handle non-integer input
             print("Please enter a valid integer for the key size.")
-
 
     # Generate Keys
     q, g, private_key, public_key = generate_keys(key_size)  # Generate the prime, generator, private key, and public key
