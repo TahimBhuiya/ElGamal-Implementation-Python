@@ -101,10 +101,10 @@ def main():
 
 
     # Generate Keys
-    q, g, private_key, public_key = generate_keys(key_size)  
-    print("\nPrime Number (q):", q) 
-    print("\nPublic Key:", public_key) 
-    print("\nPrivate Key:", private_key)  
+    q, g, private_key, public_key = generate_keys(key_size)  # Generate the prime, generator, private key, and public key
+    print("\nPrime Number (q):", q)  # Display the generated prime number
+    print("\nPublic Key:", public_key)  # Display the public key
+    print("\nPrivate Key:", private_key)  # Display the private key (should be kept secret)
    
     plaintext = input("\nEnter the plaintext: ") 
    
