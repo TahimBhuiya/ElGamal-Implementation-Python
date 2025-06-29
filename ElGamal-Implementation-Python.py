@@ -87,13 +87,18 @@ def decrypt(ciphertext, q, private_key):
 def main():
     while True:
         try:
-            key_size = int(input("Enter the key size in bits (preferably 16,32,64,128,256): ")) 
+            # Prompt the user to enter the desired key size in bits
+            key_size = int(input("Enter the key size in bits (preferably 16,32,64,128,256): "))
+            
+            # Validate that the key size is a positive integer
             if key_size <= 0:
                 print("Please enter a positive integer for the key size.")
                 continue
-            break
+            break  # Exit the loop if the input is valid
         except ValueError:
+            # Handle non-integer input
             print("Please enter a valid integer for the key size.")
+
 
     # Generate Keys
     q, g, private_key, public_key = generate_keys(key_size)  
