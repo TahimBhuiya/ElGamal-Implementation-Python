@@ -77,9 +77,10 @@ def encrypt(msg, q, g, public_key):
 
 # Asymmetric Decryption
 def decrypt(ciphertext, q, private_key):
-    h = power(ciphertext[0][0], private_key, q)
-    plaintext = ''.join([chr((char * pow(h, -1, q)) % q) for _, char in ciphertext])
-    return plaintext
+    h = power(ciphertext[0][0], private_key, q)  # Recompute the shared secret using the private key
+    plaintext = ''.join([chr((char * pow(h, -1, q)) % q) for _, char in ciphertext])  # Decrypt each character
+    return plaintext  # Return the original plaintext message
+
 
 
 # Main Function
