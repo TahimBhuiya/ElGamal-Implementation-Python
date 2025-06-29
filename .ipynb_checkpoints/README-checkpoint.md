@@ -1,12 +1,12 @@
 
-🔐 ElGamal Encryption and Decryption in Python  
-By Tahim Bhuiya  
+# 🔐 ElGamal Encryption and Decryption in Python  
+**By Tahim Bhuiya**
 
 This is a Python implementation of the **ElGamal public-key cryptosystem**, which encrypts and decrypts text using asymmetric cryptography based on modular arithmetic and discrete logarithms.
 
 ---
 
-📜 Overview  
+## 📜 Overview  
 ElGamal is an asymmetric-key encryption algorithm used for secure data exchange. This project simulates ElGamal by:
 
 - Generating a large prime number `q`  
@@ -17,11 +17,11 @@ ElGamal is an asymmetric-key encryption algorithm used for secure data exchange.
 
 ---
 
-▶️ Usage  
+## ▶️ Usage  
 
 Run the Python program:  
 ```bash
-python elgamal.py
+ElGamal-Implementation-Python.py
 ```
 
 Then:  
@@ -41,7 +41,7 @@ This program requires only Python and the `sympy` library. It runs in:
 
 ---
 
-🧠 Code Description  
+## 🧠 Code Description  
 
 | Function              | Purpose                                                                 |
 |-----------------------|-------------------------------------------------------------------------|
@@ -56,7 +56,7 @@ This program requires only Python and the `sympy` library. It runs in:
 
 ---
 
-🔐 Key Concepts  
+## 🔐 Key Concepts  
 
 | Concept       | Description                                                                      |
 |----------------|----------------------------------------------------------------------------------|
@@ -69,7 +69,7 @@ This program requires only Python and the `sympy` library. It runs in:
 
 ---
 
-🧪 Example Output  
+## 🧪 Example Output  
 ```
 Enter the key size in bits (preferably 16,32,64,128,256): 32
 
@@ -88,7 +88,7 @@ Decrypted Plaintext: hello
 
 ---
 
-📦 Requirements  
+## 📦 Requirements  
 - Python 3.x  
 - `sympy` library  
   Install with:  
@@ -98,7 +98,7 @@ Decrypted Plaintext: hello
 
 ---
 
-✅ Notes  
+## ✅ Notes  
 - The plaintext can be any UTF-8 string.  
 - Keys and ciphertexts are generated fresh on each run.  
 - The implementation uses `ord()` and `chr()` to encode/decode individual characters.  
@@ -106,7 +106,7 @@ Decrypted Plaintext: hello
 
 ---
 
-📣 Credits  
+## 📣 Credits  
 Developed by **Tahim Bhuiya**  
 
 🎉 Enjoy!
